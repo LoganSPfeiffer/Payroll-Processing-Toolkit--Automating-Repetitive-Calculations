@@ -46,12 +46,18 @@ function processPayroll(employee) {
 
     
     return {
-        "name:": employee.name,
-        "basePay: $": basePay,
-        "overtimePay: $": overtimePay,
-        "gross Pay: $": grossPay,
-        "netPay: $": netPay 
+
+        "Name": employee.name,
+        "Base Pay": '$' + basePay.toFixed(2),
+        "Overtime Pay": '$' + overtimePay.toFixed(2),
+        "Gross Pay": '$' + grossPay.toFixed(2),
+        "Net Pay": '$' + netPay.toFixed(2)
     };
 }
 
 // Process payroll for each employee and log the results
+
+employees.forEach(employee => {
+    let payroll = processPayroll(employee);
+    console.log(payroll);
+});
