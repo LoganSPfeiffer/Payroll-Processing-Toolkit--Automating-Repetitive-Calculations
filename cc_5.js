@@ -27,3 +27,11 @@ function calculateOvertimePay(rate, hours) {
        return 0;
     }
 }
+
+// Calculate Taxes (gross pay)
+function calculateTaxes(grossPay) {
+   let taxRate = 0.15; // 15% tax rate
+   let taxAmount = grossPay * taxRate;
+   let netPay = grossPay - taxAmount;
+   return netPay;
+}
