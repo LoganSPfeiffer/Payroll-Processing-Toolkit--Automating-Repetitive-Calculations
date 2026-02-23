@@ -28,10 +28,30 @@ function calculateOvertimePay(rate, hours) {
     }
 }
 
-// Calculate Taxes (gross pay)
+// Calculate Taxes , Net pay and Grosspay 
 function calculateTaxes(grossPay) {
    let taxRate = 0.15; // 15% tax rate
    let taxAmount = grossPay * taxRate;
    let netPay = grossPay - taxAmount;
    return netPay;
 }
+
+// PayRoll
+function processPayroll(employee) {
+
+    let basePay = calculateBasePay(employee.hourlyRate, employee.hoursWorked);
+    let overtimePay = calculateOvertimePay(employee.hourlyRate, employee.hoursWorked);
+    let grossPay = basePay + overtimePay;
+    let netPay = calculateTaxes(grossPay);
+
+    
+    return {
+        "name:": employee.name,
+        "basePay: $": basePay,
+        "overtimePay: $": overtimePay,
+        "gross Pay: $": grossPay,
+        "netPay: $": netPay 
+    };
+}
+
+// Process payroll for each employee and log the results
